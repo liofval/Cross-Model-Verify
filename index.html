@@ -125,8 +125,27 @@
     .card--claude .badge { background: var(--accent-claude); color: #fff; }
     .card--codex .badge { background: var(--accent-codex); color: #fff; }
 
+    .prompt-link {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.6em 1.4em;
+      background: var(--surface);
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .prompt-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+
     footer {
-      margin-top: 3rem;
+      margin-top: 2rem;
       font-size: 0.75rem;
       color: var(--text-sub);
     }
@@ -151,6 +170,8 @@
       <span class="card-desc">OpenAI Codex CLI で生成した家計簿アプリ</span>
     </a>
   </div>
+
+  <a href="prompts/" class="prompt-link">&#128221; 使用プロンプトを見る</a>
 
   <footer>Built for fun &mdash; comparing AI coding assistants</footer>
 </body>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>使用プロンプト - AI Kakeibo Comparison</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --text-sub: #6e6e73;
+      --accent: #6366f1;
+      --quote-bg: #f0f0f3;
+      --quote-border: #c7c7cc;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --radius: 16px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1a1e;
+        --surface: #2c2c30;
+        --text: #f5f5f7;
+        --text-sub: #a1a1a6;
+        --quote-bg: #38383c;
+        --quote-border: #58585c;
+        --shadow: 0 2px 12px rgba(0,0,0,0.3);
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .back {
+      display: inline-block;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .back:hover { text-decoration: underline; }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .lead {
+      color: var(--text-sub);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .step {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .step-number {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15em 0.6em;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+    }
+
+    .step h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+
+    .prompt {
+      background: var(--quote-bg);
+      border-left: 3px solid var(--quote-border);
+      border-radius: 6px;
+      padding: 0.8rem 1rem;
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .note {
+      margin-top: 2.5rem;
+      padding: 1rem 1.2rem;
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+    .note strong { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../" class="back">&larr; ポータルに戻る</a>
+    <h1>使用プロンプト</h1>
+    <p class="lead">両バージョンとも、以下のプロンプトを順番にAIへ投げて作成した。</p>
+
+    <div class="step">
+      <span class="step-number">STEP 1</span>
+      <h2>要件の壁打ち</h2>
+      <div class="prompt">アプリを作成するにあたって要件定義書を作成しようと考えているので壁打ちに付き合ってください。ただし、壁打ちの際に重要だと思ったことを要件定義書作成のためのメモファイルを作成してその中にメモを残して欲しいです。あとでそれを参考に要件定義書を作成してもらいます。</div>
+    </div>
+
+    <div class="step">
+      <span class="step-number">STEP 2</span>
+      <h2>機能要件</h2>
+      <div class="prompt">入力したお金の動きを元にグラフで可視化してくれる機能が欲しいかも。ダークモード切り替えができるようにしたい。給与計算と、支出の計算をできるようにしたい。支出の項目は自分で作成してそこから選べるようにしたい。設定画面があってそこで項目の作成ができるといいよね。</div>
+    </div>
+
+    <div class="step">
+      <span class="step-number">STEP 3</span>
+      <h2>収入管理の詳細</h2>
+      <div class="prompt">複数のバイト先・仕事先を管理したい。設定画面で「バイト先名 + 時給」を登録しておいて、収入入力時にバイト先を選んで時間だけ入れる。</div>
+    </div>
+
+    <div class="step">
+      <span class="step-number">STEP 4</span>
+      <h2>カレンダー機能</h2>
+      <div class="prompt">日付をタップしたらその日の詳細が見れる＆そこから入力もできるイメージ。</div>
+    </div>
+
+    <div class="step">
+      <span class="step-number">STEP 5</span>
+      <h2>技術スタック指定</h2>
+      <div class="prompt">Reactとか、TSで全部書いて欲しい。</div>
+    </div>
+
+    <div class="step">
+      <span class="step-number">STEP 6</span>
+      <h2>UX方針</h2>
+      <div class="prompt">UIは使いやすさ重視にしてください。予算超過の警告はいりません。</div>
+    </div>
+
+    <div class="step">
+      <span class="step-number">STEP 7</span>
+      <h2>データ永続化</h2>
+      <div class="prompt">ブラウザのデータを消すと全部消えてしまうので、JSONファイルでエクスポート/インポートできる機能を入れておいてください。</div>
+    </div>
+
+    <div class="step">
+      <span class="step-number">STEP 8</span>
+      <h2>設計ドキュメント作成</h2>
+      <div class="prompt">ディレクトリをみてワイヤーフレームを作成してください。</div>
+      <div class="prompt" style="margin-top:0.6rem">アプリのワークフローについてマーメイド記法で整理したファイルを作成してください。</div>
+      <div class="prompt" style="margin-top:0.6rem">ディレクトリをみて重要なことはwebsearchをしつつ、詳細な仕様書を作成してください。</div>
+    </div>
+
+    <div class="step">
+      <span class="step-number">STEP 9</span>
+      <h2>実装開始</h2>
+      <div class="prompt">これまで作成したmdファイルをみて実装を開始してください。</div>
+    </div>
+
+    <div class="note">
+      <strong>Note:</strong> Claude版は Claude Code (Opus)、Codex版は OpenAI Codex CLI で実行。同一のプロンプトを使用し、AIの出力の違いを比較している。
+    </div>
+  </div>
+</body>
+</html>
