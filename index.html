@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Kakeibo Comparison</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f5f7;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --text-sub: #6e6e73;
+      --accent-claude: #d97706;
+      --accent-codex: #059669;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --radius: 16px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1a1e;
+        --surface: #2c2c30;
+        --text: #f5f5f7;
+        --text-sub: #a1a1a6;
+        --shadow: 0 2px 12px rgba(0,0,0,0.3);
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 640px;
+      width: 100%;
+    }
+
+    @media (max-width: 500px) {
+      .cards { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem 1.5rem;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .card--claude .card-icon { background: #fef3c7; }
+    .card--codex .card-icon { background: #d1fae5; }
+
+    @media (prefers-color-scheme: dark) {
+      .card--claude .card-icon { background: #78350f; }
+      .card--codex .card-icon { background: #064e3b; }
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .card-desc {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2em 0.7em;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .card--claude .badge { background: var(--accent-claude); color: #fff; }
+    .card--codex .badge { background: var(--accent-codex); color: #fff; }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.75rem;
+      color: var(--text-sub);
+    }
+  </style>
+</head>
+<body>
+  <h1>AI Kakeibo Comparison</h1>
+  <p class="subtitle">同じ要件で作った家計簿アプリを比べてみよう</p>
+
+  <div class="cards">
+    <a href="claude-version/" class="card card--claude">
+      <div class="card-icon">&#9997;</div>
+      <span class="badge">Claude</span>
+      <span class="card-title">Claude版</span>
+      <span class="card-desc">Claude Code (Opus) で生成した家計簿アプリ</span>
+    </a>
+
+    <a href="codex-version/" class="card card--codex">
+      <div class="card-icon">&#129302;</div>
+      <span class="badge">Codex</span>
+      <span class="card-title">Codex版</span>
+      <span class="card-desc">OpenAI Codex CLI で生成した家計簿アプリ</span>
+    </a>
+  </div>
+
+  <footer>Built for fun &mdash; comparing AI coding assistants</footer>
+</body>
+</html>
