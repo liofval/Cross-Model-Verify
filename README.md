@@ -14,12 +14,17 @@
 | スタイリング | CSS Modules | CSS Modules |
 | データ保存 | localStorage | localStorage |
 
+## 使用プロンプト
+
+両バージョンとも同じプロンプトで作成。詳細は [`prompts/`](./prompts/) を参照。
+
 ## 構成
 
 ```
 index.html          # ポータル画面
 claude-version/     # Claude版ビルド成果物
 codex-version/      # Codex版ビルド成果物
+prompts/            # 各バージョンで使用したプロンプト
 ```
 
 ## ソースコード
